@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import scikit-learn as sklearn
 from sklearn.linear_model import Lasso
 
 # Données sur le niveaux de vie par arrondissement en 2020
