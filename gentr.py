@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
-import seaborn as sns
 import numpy as np
-import matplotlib.pyplot as plt
+from sklearn.linear_model import Lasso
 
 
 
@@ -235,13 +234,6 @@ elif page == "Estimation prix immobilier":
     surface_reelle_bati = st.number_input("Surface réelle :", min_value=1, step=1)
     nombre_pieces_principales = st.number_input("Nombre de pieces:", min_value=1, step=1)
     surface_moyenne_piece = st.number_input("Surface moyenne d'une piece :", min_value=1, step=1)
-  
-
-
-
-
-
-
     
 
     # Bouton pour afficher le résultat
@@ -377,60 +369,3 @@ elif page == "Estimation prix immobilier":
       prediction = round(model.predict(my_data)[0])
       st.write(f"Ce logement vous coûtera {prediction} euros")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Code pour la carte qui ne fonctionne pas
-
-
-# import requests
-# import json
-# import folium
-
-# niveaux_vie['Différence'] = 3000 - niveaux_vie['Niveaux de vie / UC']
-
-
-# # Remplacez "URL_DU_FICHIER_JSON" par le lien vers votre fichier GeoJSON
-# url = "https://france-geojson.gregoiredavid.fr/repo/regions/ile-de-france/communes-ile-de-france.geojson"
-
-# # Envoyer une requête GET pour récupérer le contenu GeoJSON depuis le lien
-# response = requests.get(url)
-
-# # Vérifier si la requête a réussi (code de statut 200)
-# if response.status_code == 200:
-#     # Analyser le contenu GeoJSON
-#     geo = json.loads(response.text)
-
-
-# paris = folium.Map(location=[48.856578, 2.351828], zoom_start=12)
-
-# # key_on : récupére le code insee du fichier geojson
-# # columns : premiere colonne : code_commmune(qui ets le code) : il permet de faire le lien avec le geojson. Deuxième colonne : valeurs à prendre en compte pour influer sur la couleur.
-# paris.choropleth(geo_data=geo, key_on="feature.properties.code",
-#                  data=niveaux_vie, columns=["Code_insee", "Différence"],
-#                  fill_color="YlOrRd")
-
-
-
-# st.write(paris)
